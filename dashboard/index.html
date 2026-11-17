@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to the board</a>
+<header class="top">
+  <div class="brand"><span class="mark" aria-hidden="true"></span><span class="brand-name">TOKEN&nbsp;RADAR</span><span class="tag">radar-2 · comps model</span></div>
+  <div class="top-meta"><span id="meta-asof">Snapshot —</span><span>Source: DefiLlama protocol index</span><span id="meta-model">Model radar-2</span></div>
+</header>
+<main id="board" tabindex="-1" aria-busy="true">
+  <section class="lede">
+    <div>
+      <h1 id="headline">Pre-token protocols, ranked by implied value</h1>
+      <p class="lede-text">Every protocol on the watchlist — $50M+ of TVL and no token on record — plus the early radar below the floor. Implied value is priced off the market itself: the median market-cap-to-TVL multiple of live-token protocols in the same category. It is a model, not a promise, and never a prediction that a token launches.</p>
+      <p class="warn">Read it as “what a token would be worth if the protocol’s record stayed as it is.” A token is never guaranteed, and no farm step here pays anyone to claim anything.</p>
+    </div>
+    <div class="facts" id="facts"></div>
+  </section>
+
+  <section class="controls" aria-label="Board controls">
+    <div class="field"><label for="q">Search</label><input type="search" id="q" placeholder="Name, slug, category or chain" autocomplete="off"></div>
+    <div class="field"><label for="category">Category</label><select id="category"><option value="all">All categories</option></select></div>
+    <div class="field"><label for="chain">Chain</label><select id="chain"><option value="all">All chains</option></select></div>
+    <div class="field"><label for="confidence">Confidence</label><select id="confidence"><option value="all">Any confidence</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select></div>
+    <label class="check"><input type="checkbox" id="watchlist-only"> Watchlist only</label>
+    <div class="tabs" role="group" aria-label="Token status">
+      <button type="button" id="tab-pre" aria-pressed="true">Pre-token</button>
+      <button type="button" id="tab-live" aria-pressed="false">Live token</button>
+      <button type="button" id="tab-comps" aria-pressed="false">Comps</button>
+    </div>
+    <span class="count" id="count"></span>
+  </section>
+
+  <section class="panel" id="panel">
+    <div class="table-wrap">
+      <table id="board-table">
+        <caption class="sub">Pre-token protocols, strongest implied value first. Select a row for its model breakdown and farm plan.</caption>
+        <thead id="thead"></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <div class="empty" id="empty" hidden>
+      <h2>No protocol matches that filter</h2>
+      <p>Clear the search or pick another category to see the board again.</p>
+      <button class="button primary" type="button" id="clear-filters">Clear filters</button>
+    </div>
+  </section>
+
+  <section class="panel model" id="model-panel">
+    <h2>How implied value is computed</h2>
+    <p class="sub">One function scores every row. No protocol name is special-cased, and no row is hand-picked. The market sets the price: each category’s multiple is the median market-cap / TVL of the live-token protocols in that category (global median <b id="global-mult">—</b> when a category has fewer than 3 live comps).</p>
+    <p class="formula" id="formula"></p>
+    <div class="sandbox">
+      <h3>Model sandbox — change the weights, watch the board move</h3>
+      <p class="sub">The sandbox recomputes every row in this page from the same snapshot figures. It changes nothing on disk: board.json keeps the published weights.</p>
+      <div class="sliders">
+        <label>Growth weight <output id="gw-out">0.50</output><input type="range" id="gw" min="0" max="1" step="0.05" value="0.5"></label>
+        <label>Maturity floor <output id="mf-out">0.60</output><input type="range" id="mf" min="0.4" max="0.8" step="0.05" value="0.6"></label>
+        <button class="button" type="button" id="sandbox-reset">Reset weights</button>
+      </div>
+    </div>
+    <h3>Comparables by category</h3>
+    <div class="table-wrap"><table id="comps-table">
+      <thead><tr><th scope="col">Category</th><th scope="col">Median mcap / TVL</th><th scope="col">Live comps</th><th scope="col">Multiple used</th></tr></thead>
+      <tbody id="comps-tbody"></tbody>
+    </table></div>
+  </section>
+</main>
+<aside class="detail" id="detail" aria-labelledby="detail-title" hidden>
+  <div class="detail-head">
+    <div>
+      <span class="brand-name" id="detail-rank"></span>
+      <h2 id="detail-title"></h2>
+      <p class="sub" id="detail-sub"></p>
+    </div>
+    <button class="close" type="button" id="detail-close" aria-label="Close details">Close</button>
+  </div>
+  <div id="detail-body"></div>
+</aside>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
