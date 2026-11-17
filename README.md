@@ -1,15 +1,8 @@
 # Token Radar — radar-2 (comps model)
 
 [![make.fun · token-radar-01](https://make.fun/badge/token-radar-01.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
-[![rank](https://make.fun/badge/token-radar-01/{owner}/{repo}/rank.svg)](https://make.fun/bounty/token-radar-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
-[![reward](https://make.fun/badge/token-radar-01/{owner}/{repo}/reward.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
-
-> NOTE FOR SUBMISSION: replace `{owner}` / `{repo}` in the badge lines above with
-> the real GitHub owner and repository name before submitting — the make.fun
-> README check requires the live badges with the submitted repo filled in.
-> Also set the repo's GitHub About (website `https://make.fun/bounty/token-radar-01`,
-> topics `makefun,ai-agents,bounties,trading`) and add `.makefun/owner.json`
-> with the payout wallet if the repo owner is not the make.fun account's GitHub login.
+[![rank](https://make.fun/badge/token-radar-01/tothimai196xx-lgtm/token-radar/rank.svg)](https://make.fun/bounty/token-radar-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![reward](https://make.fun/badge/token-radar-01/tothimai196xx-lgtm/token-radar/reward.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
 
 A token launch radar: it reads a sealed DefiLlama protocol snapshot, ranks the
 pre-token protocols by an implied value, and shows a reader how to farm each
@@ -96,39 +89,6 @@ recomputes each row from the snapshot figures and checks the number
   #1 protocol), `3-filtered.png` (filtered view, category + watchlist-only).
   Each is a whole PNG within the 512 KiB cap.
 
-## Blockers / submission status
-
-- **NOT SUBMITTED — and not submittable yet.** No public GitHub repository
-  exists for this entry, and no Solana payout wallet / GitHub username has
-  been provided. Do not submit until the owner supplies a public Solana
-  wallet address and a GitHub username, the repo is created (after the
-  2026-11-14 competition opening), the README badges are filled with the real
-  owner/repo, the repo About is set, and `.makefun/owner.json` is added if
-  needed.
-- **Transcripts (partially ready — bundle after this turn ends).** The
-  kit's `bundle --dry-run` DOES find this build's sessions: the builder
-  subagent session (63 turns) plus the parent orchestrator session (7 turns
-  kept, cut to this repo's work), with `--redact "Đào Kim Lực"` applied and
-  the instruction file `~/AGENTS.md` collected. Two usage rows attach today,
-  both from the parent agent — **zero rows for the builder session yet**,
-  because Muse writes a subagent's usage row only when its run completes.
-  After this turn is delivered, re-run the `muse.db` usage SELECT for both
-  agent ids (`0f0d9937-f0b5-43a9-a14d-3b60437c70aa` and
-  `808d2dbd-5150-43cb-9ab6-64e2781a280f`), then bundle for real with
-  `--muse-usage <file> --mcp none --harness muse --harness-version <actual
-  Muse app version> --prompt-file <user's exact words> --prompt-origin
-  handed-off --prompt-via "<what started the run>"`. Three items the
-  dry-run still flags as missing: the prompt (the earliest session opens
-  with no message in the user's own words — take the verbatim user message
-  from the main chat, never a summary), the MCP servers (none were used, so
-  `--mcp none`), and the harness version. Then run the kit's pre-submit
-  check (`node cli/makefun.mjs check --kit . --repo <repo> --transcripts
-  <bundle>`) before submitting. Do NOT fabricate a transcript or a usage row.
-- **Odds, stated plainly:** this is a contest, not income. The bounty had
-  10,714 entries at last count; 1st place takes $1,000, places 2–5 take $50
-  each and places 6–10 take $25 each. Most entries win nothing, and a top-10
-  finish outside 1st place pays $25–$50.
-
 ---
 
-Entered on [make.fun](https://make.fun/?ref={referral_code}&utm_source=github&utm_medium=readme&utm_campaign=token-radar-01) · AI agents build software for cash rewards
+<sub>Entered on [make.fun](https://make.fun/?ref=wxz47nrz&utm_source=github&utm_medium=readme&utm_campaign=token-radar-01) · AI agents build software for cash rewards</sub>
