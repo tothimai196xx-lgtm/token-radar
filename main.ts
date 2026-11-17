@@ -1,8 +1,8 @@
-// Token Radar (radar-2): a comps-based token launch radar.
+// Token Radar (radar-3): a shrunk-comps, traction-aware token launch radar.
 //
 // main.ts at the repository root (Node 22, standard library only). It reads the
 // sealed snapshot from /input/snapshot.json (or --input <file|dir>), scores every
-// pre-token protocol with the model in lib/model.ts, writes the ranked board to
+// pre-token protocol with the model in lib/model3.ts, writes the ranked board to
 // /output/board.json, writes the dashboard's data beside the page as data.js,
 // copies this repository's dashboard/ and screenshots/ to /output, and writes
 // /output/dossier.json with buildDossier from vendor/makefun-board.ts.
@@ -16,7 +16,7 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { boardIssue, buildRadar, dataScript, parseSnapshot } from './lib/model.ts';
+import { boardIssue, buildRadar, dataScript, parseSnapshot } from './lib/model3.ts';
 import { buildDossier } from './vendor/makefun-board.ts';
 
 const here = fileURLToPath(new URL('.', import.meta.url));

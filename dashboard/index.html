@@ -9,14 +9,14 @@
 <body>
 <a class="skip" href="#board">Skip to the board</a>
 <header class="top">
-  <div class="brand"><span class="mark" aria-hidden="true"></span><span class="brand-name">TOKEN&nbsp;RADAR</span><span class="tag">radar-2 · comps model</span></div>
-  <div class="top-meta"><span id="meta-asof">Snapshot —</span><span>Source: DefiLlama protocol index</span><span id="meta-model">Model radar-2</span></div>
+  <div class="brand"><span class="mark" aria-hidden="true"></span><span class="brand-name">TOKEN&nbsp;RADAR</span><span class="tag">radar-3 · shrunk comps + traction</span></div>
+  <div class="top-meta"><span id="meta-asof">Snapshot —</span><span>Source: DefiLlama protocol index</span><span id="meta-model">Model radar-3</span></div>
 </header>
 <main id="board" tabindex="-1" aria-busy="true">
   <section class="lede">
     <div>
       <h1 id="headline">Pre-token protocols, ranked by implied value</h1>
-      <p class="lede-text">Every protocol on the watchlist — $50M+ of TVL and no token on record — plus the early radar below the floor. Implied value is priced off the market itself: the median market-cap-to-TVL multiple of live-token protocols in the same category. It is a model, not a promise, and never a prediction that a token launches.</p>
+      <p class="lede-text">Every protocol on the watchlist — $50M+ of TVL and no token on record — plus the early radar below the floor. Implied value is priced off the market itself: the median market-cap-to-TVL multiple of live-token protocols in the same category, winsorised and shrunk toward the global median so thin categories cannot set the price. Growth counts with diminishing returns, age counts on a log scale, and a protocol that reached its TVL fast counts for more than one that took years to get there. It is a model, not a promise, and never a prediction that a token launches.</p>
       <p class="warn">Read it as “what a token would be worth if the protocol’s record stayed as it is.” A token is never guaranteed, and no farm step here pays anyone to claim anything.</p>
     </div>
     <div class="facts" id="facts"></div>
@@ -53,14 +53,14 @@
 
   <section class="panel model" id="model-panel">
     <h2>How implied value is computed</h2>
-    <p class="sub">One function scores every row. No protocol name is special-cased, and no row is hand-picked. The market sets the price: each category’s multiple is the median market-cap / TVL of the live-token protocols in that category (global median <b id="global-mult">—</b> when a category has fewer than 3 live comps).</p>
+    <p class="sub">One function scores every row. No protocol name is special-cased, and no row is hand-picked. The market sets the price: each category’s multiple is the median market-cap / TVL of the live-token protocols in that category, after winsorising each live ratio into [0.005, 5] and shrinking the median toward the global median (<b id="global-mult">—</b>) with weight n / (n + 4) — and a category with fewer than 5 comps can claim at most 3× the global median. Traction is the board’s own mean and spread of log TVL per day alive, so a young protocol that reached $1B fast outranks an old one that took years to get there.</p>
     <p class="formula" id="formula"></p>
     <div class="sandbox">
       <h3>Model sandbox — change the weights, watch the board move</h3>
       <p class="sub">The sandbox recomputes every row in this page from the same snapshot figures. It changes nothing on disk: board.json keeps the published weights.</p>
       <div class="sliders">
-        <label>Growth weight <output id="gw-out">0.50</output><input type="range" id="gw" min="0" max="1" step="0.05" value="0.5"></label>
-        <label>Maturity floor <output id="mf-out">0.60</output><input type="range" id="mf" min="0.4" max="0.8" step="0.05" value="0.6"></label>
+        <label>Growth weight <output id="gw-out">0.32</output><input type="range" id="gw" min="0" max="0.6" step="0.02" value="0.32"></label>
+        <label>Maturity floor <output id="mf-out">0.55</output><input type="range" id="mf" min="0.4" max="0.8" step="0.05" value="0.55"></label>
         <button class="button" type="button" id="sandbox-reset">Reset weights</button>
       </div>
     </div>
